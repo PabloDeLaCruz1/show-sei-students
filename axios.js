@@ -10,7 +10,7 @@ axios.get('https://sei-api.herokuapp.com/students')
 
         const ul = document.querySelector("#ul")
         sorted.forEach(student => {
-            ul.innerHTML += `<li> <strong> ${student.name.toUpperCase()} </strong> <br>
+            ul.innerHTML += `<li> <strong> ${student.name.capitalize()} </strong> <br>
         <em> ${student.knownFor}</em>
         </li>`
 
@@ -19,3 +19,7 @@ axios.get('https://sei-api.herokuapp.com/students')
     .catch((error) => {
         console.log(error);
     });
+
+    String.prototype.capitalize = function () {
+        return this.charAt(0).toUpperCase() + this.substr(1)
+    }
